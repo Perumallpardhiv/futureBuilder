@@ -13,6 +13,7 @@ class screen1 extends StatefulWidget {
 class _screen1State extends State<screen1> {
   var url = "https://api.publicapis.org/entries";
 
+  // function
   getdata() async {
     var res = await http.get(Uri.parse(url));
     var data = json.decode(res.body);
@@ -37,15 +38,15 @@ class _screen1State extends State<screen1> {
                     margin: const EdgeInsets.all(10),
                     child: ListTile(
                       title: Text("${snapshot.data['entries'][index]['API']}"),
-                      subtitle: Text(
-                          "${snapshot.data['entries'][index]['Description']}"),
+                      subtitle: Text("${snapshot.data['entries'][index]['Description']}"),
                     ),
                   ),
                   const Divider(),
                 ]);
               },
             );
-          } else {
+          } 
+          else {
             return const Center(
               child: SpinKitSpinningLines(color: Colors.blue),
             );
